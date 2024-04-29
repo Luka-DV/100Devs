@@ -1,2 +1,2 @@
 
-## Code from the 100Devs JS super review ##
+## 100Devs code exercises ##
