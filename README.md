@@ -1,2 +1,2 @@
 
-## 100Devs code exercises ##
+## 100Devs coding exercises ##
