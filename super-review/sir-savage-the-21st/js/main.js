@@ -18,10 +18,10 @@ function savageSays(num) {
         console.log(num);
 
         const newElement = document.createElement("h2");
-        newElement.innerText += `${num}`;
+        newElement.innerText = `${num}`;
         document.body.appendChild(newElement);
     }
 }
 
-savageSays(21);
+savageSays(8);
 
