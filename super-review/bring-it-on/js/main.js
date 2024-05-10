@@ -23,7 +23,7 @@ subtractNums(99, 50, 20, 5);
 // Create a function that divides one number by another and returns the remainder
 
 function divideNums(num1, num2) {
-    const remainder = num1/num2;
+    const remainder = num1&num2;
     return remainder;
 }
 
