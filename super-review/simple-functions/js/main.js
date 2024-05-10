@@ -31,11 +31,11 @@ console.log(multiplyThreeNums(5, 10, 2));
 
 function addTwoAndDivide(num1, num2, num3) {
     const sum = num1 + num2;
-    const quotient = sum / num3;
+    const quotient = sum % num3;
     return quotient;
 }
 
-console.log(addTwoAndDivide(10, 20, 2));
+console.log("Medium: ", addTwoAndDivide(10, 20, 7));
 
 //---Hard
 //create a function that takes in 4 numbers. Multiply the first two numbers. If the product is greater than 100 add the sum of the last two numbers and console log the value. If the product is less that 100, subtract the difference of the last two numbers and console log the value. If the product is 100, multiply the first three numbers together and alert the remainder of dividing the fourth number
