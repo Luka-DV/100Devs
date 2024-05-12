@@ -25,3 +25,44 @@ fetch("https://dog.ceo/api/breeds/image/random")
     })
 
 
+
+class MyClass {
+   #privateField = "Ball"; // Private field >> or just #privateField = "value"
+    
+    //if you want that every instance has its own value:
+    constructor(value) {
+       this.#privateField = value; // Initialize private field
+    }
+    
+    //...če imaš v constructorju privateField moraš vseeno declerat privateField na samem class-u!
+    
+    // Getter method for private field:
+
+    get field() {
+        return this.#privateField;
+    }
+
+    set field(value) {
+        this.#privateField = value;
+    }
+    }
+
+const obj = new MyClass();
+const wolf = new MyClass();
+console.log(obj.field); // Output: "Ball"
+console.log(wolf.field) // Output: "Ball"
+
+obj.field = "cat";
+console.log(obj.field); // Output: "cat"
+console.log(wolf.field) // Output: "cat"
+
+
+// console.log(obj.#privateField); //error
+// obj.field = "Dog";
+// console.log(obj.field)
+//obj.#privateField = "some other value";  // Error: Private field '#privateField' must be declared in an enclosing class
+
+// const wolf = new MyClass();
+// console.log("wolf", wolf.field)
+
+
