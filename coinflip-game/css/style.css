@@ -1,0 +1,51 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+main {
+    margin-top: clamp(1rem, 33%, 10rem);
+    text-align: center;
+    width: 33%;
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+section {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em 0;
+}
+
+button {
+    width: 87px;
+    padding: 1em;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+button:hover {
+    background-color: aqua;
+}
+
+img {
+    margin-top: clamp(1rem, 3vh, 5rem);
+    max-width: 100%;
+}
+
+@media screen and (max-width: 370px) {
+    main {
+        width: 100%;
+    }
+}
