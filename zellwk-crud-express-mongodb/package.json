@@ -1,0 +1,16 @@
+{
+  "name": "zellwk-crud-express-mongodb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch --env-file=.env server.js"
+  },
+  "author": "Luka Vuga",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
