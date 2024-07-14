@@ -1,0 +1,36 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Star Wars Quote App</title>
+  </head>
+
+  <body>
+    <h1>May Node and Express be with you.</h1>
+
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="quote" name="quote" />
+      <button type="submit">Submit</button>
+    </form>
+    
+<!-- ejs cannot convert objects into HTML automatically. We need to loop through the quotes. We can do this with a for loop. In EJS, we write a for loop like how we write a JavaScript for loop. The only difference is we need to put the for loop statements between < % and % >. -->
+
+   <h2>quotes</h2>
+
+   <ul class="quotes">
+
+      <% for(let i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+          <!-- place variables between < % = and % > tags -->
+          <span><%= quotes[i].name %></span>:
+          <span><%= quotes[i].quote %></span>
+        
+        </li>
+      <% } %>
+
+   </ul>
+
+  </body>
+</html>
