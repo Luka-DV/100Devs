@@ -11,8 +11,4 @@ A simple web-based coin flip game implemented in JavaScript. The player can choo
 - Node.js (for server-side logic)
 
 
-## Contact
-
-Luka - [Your Email Address] - [Your LinkedIn Profile]
-
 Project Link: [Coin flip game](https://github.com/Luka-DV/100Devs/tree/main/coinflip-game)
