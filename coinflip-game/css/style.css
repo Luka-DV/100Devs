@@ -39,6 +39,10 @@ button:hover {
     background-color: aqua;
 }
 
+.hidden {
+    display: none;
+}
+
 img {
     margin-top: clamp(1rem, 3vh, 5rem);
     max-width: 100%;

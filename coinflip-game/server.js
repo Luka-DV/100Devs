@@ -20,7 +20,8 @@ const server = http.createServer((req, res) => {
         const page = urlObj.pathname;
 
         console.log("urlOBJ: ", urlObj)
-        console.log("page:", page)
+        console.log("page: url.pathnname", page)
+        console.log("req.url: ", req.url);
 
         switch(page) {
             case "/": 
