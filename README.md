@@ -1,2 +1,2 @@
 
-## 100Devs coding exercises and projects ##
+## Back-end coding exercises and projects ##
