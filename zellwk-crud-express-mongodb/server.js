@@ -1,5 +1,5 @@
 
-import express from "express";
+import express, { query } from "express";
 import url from "url";
 import path from "path";
 import { MongoClient } from 'mongodb'
@@ -24,8 +24,12 @@ const client = new MongoClient(connectionUri);
 // setting up the Embedded JS templating engine to generate the HTML for the quotes
 app.set("view engine", "ejs");
 
+// middleware for parsing POST msg-es from the form element
 app.use(express.urlencoded({extended: true }));
-
+// so the server can parse json data
+app.use(express.json());
+// middleware to make the public folder accessible to the public - serves static files that are in the folder
+app.use(express.static("public"));
 
 async function runClient() {
     try {
@@ -45,6 +49,30 @@ async function runClient() {
             }catch(err) {
                 console.err(err);
             }  
+        })
+
+        app.put("/quotes", async (req, res) => {
+            try {
+                console.log("Request body:", req.body);
+                const result = await quotesCollection.findOneAndUpdate( //This method lets us find and change one item in the database: .findOneAndUpdate(query, update, options)
+                    { name: "Yoda" }, 
+                    {
+                        $set: {
+                            name: req.body.name,
+                            quote: req.body.quote,
+                        },
+                    },
+                    {
+                        upsert: true,
+                    }
+                );
+
+                console.log(result);
+                res.json("Success");
+
+            } catch (error) {
+                console.error(error);
+            }
         })
 
         app.get("/", async (req, res) => {
