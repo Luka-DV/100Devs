@@ -44,7 +44,7 @@ async function runClient() {
         app.post("/quotes", async (req, res) => {
             try {
                 const insertResult = await quotesCollection.insertOne(req.body); //adds one item into a collection
-                console.log(insertResult);
+                console.log("POST result: ", insertResult);
                 res.redirect("/");
             }catch(err) {
                 console.err(err);
@@ -67,7 +67,7 @@ async function runClient() {
                     }
                 );
 
-                console.log(result);
+                console.log("PUT result: ", result);
                 res.json("Success");
 
             } catch (error) {
@@ -75,10 +75,32 @@ async function runClient() {
             }
         })
 
+        app.delete("/quotes", async (req, res) => {
+
+            try {
+                const result = await quotesCollection.deleteOne( //or findOneAndDelete()
+                    { name: req.body.name }
+                );
+
+                console.log("DELETE result: ", result);
+
+                if (result.deletedCount === 0) {
+                    return res.json("No quote to delete")
+                  }
+                res.json("Deleted Darth Vader's quote");
+
+            } catch (error) {
+                console.error(error);
+            }
+            
+            
+        })
+
         app.get("/", async (req, res) => {
-            //res.sendFile(path.join(__dirname, "index.html")); //origninal, works: __dirname + "/index.html"
+            // await db.collection('quotes').deleteMany({}); //deletes all the documents in the collection
+            // res.sendFile(path.join(__dirname, "index.html")); //origninal, works: __dirname + "/index.html"
             const results = await db.collection("quotes").find().toArray(); //finds all the quotes and returns an array
-            console.log(results);
+            console.log("GET results: ", results);
             res.render("index.ejs", { quotes: results}); //used to render the .ejs file
             //console.log(cursor);
         })

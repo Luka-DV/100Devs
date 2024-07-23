@@ -80,6 +80,7 @@ function updateDOM(method) {
         if(!quoteFound) {
             const newLiElement = document.createElement("li");
             newLiElement.innerText = vaderQuote;
+            newLiElement.classList.add("quote");
             document.querySelector(".quotes").appendChild(newLiElement);
         }
 
