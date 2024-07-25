@@ -1,0 +1,52 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: url("/img/background.jpg") center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+main, header {
+    width: 100%;
+    max-width: 1500px;
+}
+
+.section-background {
+    background: white;
+    border-radius: 7px;
+    padding: 1em;
+    margin-bottom: 1em;
+    border: 2px solid black;
+}
+
+.flex-containter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-containter>section {
+    width: 30%;
+}
+
+@media screen and (max-width: 715px) {
+    .flex-containter {
+        flex-direction: column;
+    }
+
+    .flex-containter>section {
+        width: 100%;
+    }
+
+    body {
+        font-size: 0.8em;
+        font-weight: 500;
+    }
+}

@@ -4,48 +4,63 @@
   <head>
     <meta charset="UTF-8" />
     <title>Star Wars Quote App</title>
+    <link rel="stylesheet" href="/style.css">
   </head>
 
   <body>
-    <h1>May Node and Express be with you.</h1>
 
-    <form action="/quotes" method="POST">
-      <input type="text" placeholder="name" name="name" />
-      <input type="text" placeholder="quote" name="quote" />
-      <button type="submit">Submit</button>
-    </form>
-    
-<!-- ejs cannot convert objects into HTML automatically. We need to loop through the quotes. We can do this with a for loop. In EJS, we write a for loop like how we write a JavaScript for loop. The only difference is we need to put the for loop statements between < % and % >. -->
+    <header class="section-background">
+      <h1>May Node and Express be with you.</h1>
+    </header>
 
-   <h2>quotes</h2>
+    <main>
 
-   <ul class="quotes">
+      <section class="flex-containter">
 
-      <% for(let i = 0; i < quotes.length; i++) {%>
-        <li class="quote">
-          <!-- place variables between < % = and % > tags -->
-          <span><%= quotes[i].name %></span>:
-          <span><%= quotes[i].quote %></span>
-        
-        </li>
-      <% } %>
-   </ul>
+        <section class="section-background">
+          <h2>Add quote</h2>   
+          <form id= "form" action="/quotes" method="POST">
+            <input type="text" placeholder="name" name="name" />
+            <input type="text" placeholder="quote" name="quote" />
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+  
+        <section class="section-background">
+          <h2>Darth Vader invades!</h2>
+          <p>Replace first Yoda's quote with a quote written by Darth Vader.</p>
+          <button id="update-button">Replace Yoda's quote</button>
+        </section>
+  
+        <section class="section-background">
+          <h2>Yoda fights back</h2>
+          <p>Delete the first Darth Vader quote. Does nothing if there are no more Darth
+            Vader's quotes.</p>
+          <button id="delete-button">Delete Vader's quote</button>
+          <div id="message"></div>
+        </section>
 
-   <div>
-    <h2>Darth Vader invades!</h2>
-    <p>Replace first Yoda's quote with a quote written by Darth Vader.</p>
-    <button id="update-button">Replace Yoda's quote</button>
-  </div>
+      </section>
 
-  <div>
-    <h2>Yoda fights back</h2>
-    <p>Delete the first Darth Vader quote. Does nothing if there are no more Darth
-      Vader's quotes.</p>
-    <button id="delete-button">Delete Vader's quote</button>
-    <div id="message"></div>
-  </div>
+      <!-- ejs cannot convert objects into HTML automatically. We need to loop through the quotes. We can do this with a for loop. In EJS, we write a for loop like how we write a JavaScript for loop. The only difference is we need to put the for loop statements between < % and % >. -->
 
+      <section class="section-background">
+        <h2>quotes</h2>
 
+        <ul class="quotes">
+     
+           <% for(let i = 0; i < quotes.length; i++) {%>
+             <li class="quote">
+               <!-- place variables between < % = and % > tags -->
+               <span><%= quotes[i].name %></span>:
+               <span><%= quotes[i].quote %></span>
+             
+             </li>
+           <% } %>
+        </ul>
+      </section>
+
+    </main>
 
   <script src="/main.js"></script>  
   <!-- You only need to include the relative path to the file within the "public" folder (not /public/main.js ie) -->
