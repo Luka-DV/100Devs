@@ -1,5 +1,5 @@
 
-import express, { query } from "express";
+import express from "express";
 import url from "url";
 import path from "path";
 import { MongoClient } from 'mongodb'
