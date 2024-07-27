@@ -39,11 +39,12 @@ async function runClient() {
         const db = client.db("star-wars-quotes"); //database
         const quotesCollection = db.collection("quotes") //returns reference/creates a new db colleciton
 
-        // we need the the db variable to access MongoDB, so we need to put Express request handlers here
+        // we need the db variable to access MongoDB, so we need to put Express request handlers here
 
         app.post("/quotes", async (req, res) => {
             try {
                 const insertResult = await quotesCollection.insertOne(req.body); //adds one item into a collection
+                console.log("REQ.BODY: ", req.body);
                 console.log("POST result: ", insertResult);
                 res.redirect("/");
             }catch(err) {
