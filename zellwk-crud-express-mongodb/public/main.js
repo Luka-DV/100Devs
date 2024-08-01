@@ -66,18 +66,18 @@ function updateDOM(method) {
 
     if(method === "PUT") {
 
-        let quoteFound = false;
+        let yodaQuoteFound = false;
         const vaderQuote = "Darth Vader: I find your lack of faith disturbing.";
     
         for(let quote of quotes) {
             if(quote.innerText.startsWith("Yoda:")) {
                 quote.innerText = vaderQuote;
-                quoteFound = true;
+                yodaQuoteFound = true;
                 break;
             }
         }
     
-        if(!quoteFound) {
+        if(!yodaQuoteFound) {
             const newLiElement = document.createElement("li");
             newLiElement.innerText = vaderQuote;
             newLiElement.classList.add("quote");
