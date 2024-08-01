@@ -44,8 +44,8 @@ async function runClient() {
         app.post("/quotes", async (req, res) => {
             try {
                 const insertResult = await quotesCollection.insertOne(req.body); //adds one item into a collection
-                console.log("REQ.BODY: ", req.body);
-                console.log("POST result: ", insertResult);
+                // console.log("REQ.BODY: ", req.body);
+                // console.log("POST result: ", insertResult);
                 res.redirect("/");
             }catch(err) {
                 console.err(err);
@@ -54,7 +54,7 @@ async function runClient() {
 
         app.put("/quotes", async (req, res) => {
             try {
-                console.log("Request body:", req.body);
+                // console.log("Request body:", req.body);
                 const result = await quotesCollection.findOneAndUpdate( //This method lets us find and change one item in the database: .findOneAndUpdate(query, update, options)
                     { name: "Yoda" }, 
                     {
@@ -68,7 +68,7 @@ async function runClient() {
                     }
                 );
 
-                console.log("PUT result: ", result);
+                // console.log("PUT result: ", result);
                 res.json("Success");
 
             } catch (error) {
@@ -83,7 +83,7 @@ async function runClient() {
                     { name: req.body.name }
                 );
 
-                console.log("DELETE result: ", result);
+                // console.log("DELETE result: ", result);
 
                 if (result.deletedCount === 0) {
                     return res.json("No quote to delete")
@@ -98,10 +98,10 @@ async function runClient() {
         })
 
         app.get("/", async (req, res) => {
-            // await db.collection('quotes').deleteMany({}); //deletes all the documents in the collection
+            // await db.collection('quotes').deleteMany({}); // deletes all the documents in the collection > quick way to reset the collection
             // res.sendFile(path.join(__dirname, "index.html")); //origninal, works: __dirname + "/index.html"
             const results = await db.collection("quotes").find().toArray(); //finds all the quotes and returns an array
-            console.log("GET results: ", results);
+            // console.log("GET results: ", results);
             res.render("index.ejs", { quotes: results}); //used to render the .ejs file
             //console.log(cursor);
         })
